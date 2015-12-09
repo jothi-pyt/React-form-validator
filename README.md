@@ -20,22 +20,27 @@ Default rules ar in the
 
 example: 
 ```
-rules: {
-     field1: {
-         number: true,
-         required: true
-     },
-     field2: {
-         email: true,
-         space: /\b/
-     }
-}
-messages : {
-    field1: {
-        number: 'Please Input A Valid Number !',
-        required: 'Please Input Field1 !'
-    }
-}
+<ValidateableForm  
+    onSubmit={this.console}
+    rules={{
+        input1: {
+            required: true,
+            numbers: true
+        },
+        input2: {
+            required: true,
+            idCard: true
+        }}}>
+    <form ref="vForm">
+        <label>Please input Numbers!</label>
+        <input type="text" name="input1"/>
+        <br/>
+        <label>Please input a Chinese IdCard Number!</label>
+        <input type="text" name="input2"/>
+        <br/>
+        <input type="submit"/>
+    </form>
+</ValidateableForm>
 ```
 
 You may see the demo in the [demo.html](https://rawgit.com/0rangeT1ger/React-form-validator/master/source/index.html)
