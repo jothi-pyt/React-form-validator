@@ -28,10 +28,10 @@ const App = React.createClass({
                  }
                 }}>
                 <form ref="vForm">
-                    <label>请输入数字!</label>
+                    <label>Please input Numbers!</label>
                     <input type="text" name="input1"/>
                     <br/>
-                    <label>请输入身份证号!</label>
+                    <label>Please input a Chinese IdCard Number!</label>
                     <input type="text" name="input2"/>
                     <br/>
                     <input type="submit"/>
