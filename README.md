@@ -38,4 +38,4 @@ messages : {
 }
 ```
 
-You may see the demo in the [demo.html](https://cdn.rawgit.com/0rangeT1ger/React-form-validator/master/source/index.html)
+You may see the demo in the [demo.html](https://rawgit.com/0rangeT1ger/React-form-validator/master/source/index.html)
