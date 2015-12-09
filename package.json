@@ -1,5 +1,5 @@
 {
-  "name": "react-form-validator",
+  "name": "react-form-validate",
   "version": "0.0.1",
   "description": "A React form validator. Has the same API as jQuery.validator",
   "main": "index.js",
@@ -17,7 +17,7 @@
     "validator",
     "valid"
   ],
-  "author": "0rangeT1ger",
+  "author": "0ranget1ger",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/0rangeT1ger/React-form-validator/issues"

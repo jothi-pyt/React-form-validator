@@ -2,23 +2,30 @@
  * Created by wujianbo on 15/12/8.
  */
 /**
- * 使用方法: 给需要设置验证的表单设置 ref="vForm"  然后传入 rules 和 messages 即可开始使用!
- *  [注意]:  需要将原来传入到 Form 标签的 onSubmit 事件传入本组件中!
- * 目前提供的默认规则都存在defaultRules中,  可以查看
- *     范例: rules : {
+ * Usage: Set the ref of the form to be validated as :
+ *     ref="vForm"
+ * then pass down the props:
+ *     rules
+ *     messages
+ * And you are all set to go!
+ *  [CAUTION]:  You will need to pass the [submit event handler] from the original Form to this ValidateableForm!
+ *
+ * Default rules ar in the [ defaultRules.js ]
+ *
+ * example: rules : {
  *              field1: {
  *                  number: true,
  *                  required: true
  *              },
  *              field2: {
  *                  email: true,
- *                  zhiHang: /[支行|分行]/
+ *                  space: /\b/
  *              }
  *          }
  *          messages : {
  *              field1: {
- *                  number: '请在field1中输入数字!',
- *                  required: '请输入field1!'
+ *                  number: 'Please Input A Valid Number !',
+ *                  required: 'Please Input Field1 !'
  *              }
  *          }
  */
@@ -54,7 +61,7 @@ function insertMessageAfterInput (messages){
             this.parentNode.appendChild(messageNode);
         }
         else {
-            throw '你居然没有父节点? 不科学!'
+            throw "Don't have a parent Node?  Impossible!"
         }
     }
 }
@@ -77,7 +84,8 @@ const VFrom = React.createClass({
         return {
             rules: {},
             messages: {},
-            onSubmit(){}
+            onSubmit(){},
+            messageClassName: ''
         }
     },
     getInitialState (){
@@ -103,9 +111,9 @@ const VFrom = React.createClass({
             for(let i in rules){
                 if(rules.hasOwnProperty(i) && rules[i]){
                     if(Object.prototype.toString.call(rules[i]) === '[object RegExp]'){
-                            //如果规则本身是个正则表达式
+                        //If the rule itself is a RegExp Object
                         if(!rules[i].test(value)){
-                            //如果违反规则,  标志为未验证通过,  并且在要提示的信息中加入该信息
+                            //If you break the rules
                             testFlag = false;
                             popMessages.push(messages[i] || _defaultMessages[i]);
                         }
@@ -116,9 +124,9 @@ const VFrom = React.createClass({
                     else {
                         if(!_defaultRules[i]){
                             if(!_defaultRules['_NOT_' + i]){  //没有这条规则
-                                throw 'ERROR: 规则' + i + '未定义!';
+                                throw 'ERROR: Rule: ' + i + ' is not defined.';
                             }
-                            else { //如果有这条规则的反规则
+                            else { //If there is a anti-rule of this current rule
                                 if(_defaultRules['_NOT_' + i].test(value)){
                                     testFlag = false;
                                     popMessages.push(messages[i] || _defaultMessages[i]);
@@ -128,7 +136,7 @@ const VFrom = React.createClass({
                                 }
                             }
                         }
-                        else { //有这条默认规则
+                        else { //If there is a Default Rule.
                             if(!_defaultRules[i].test(value)){
                                 testFlag = false;
                                 popMessages.push(messages[i] || _defaultMessages[i]);
@@ -141,7 +149,6 @@ const VFrom = React.createClass({
                 }
             }
             if(testFlag){
-                //insertMessageAfterInput.call(input, popMessages);
                 deleteMessageAfterInput.call(input, popMessages);
             }
             else {
@@ -159,17 +166,16 @@ const VFrom = React.createClass({
                 if(rules.hasOwnProperty(i)){
                     let input = this.findChildInputByName(i);
                     if(input){
-                        //input.addEventListener('change', this.addChangeValidator(i));
                         input.onkeyup = this.addChangeValidator(i);
                     }
                     else {
-                        throw 'ERROR: 表单中没有' + i + '这个字段!'
+                        throw 'ERROR: There is no input name as :' + i + ' !'
                     }
                 }
             }
         }
         else {
-            throw 'ERROR: 没有找到要验证的表单, 请设置要验证的表单的 ref 属性为 "vForm"'
+            throw 'ERROR: Did not found a Form to validate. Make sure you set the ref of the Form as "vForm".'
         }
     },
     valid (event){
@@ -183,12 +189,11 @@ const VFrom = React.createClass({
                         testFlag = this.validate(this.props.rules[i], this.props.messages[i] || {})({target: input});
                     }
                     else {
-                        throw 'ERROR: 表单中没有' + i + '这个字段!'
+                        throw 'ERROR: There is no input name as :' + i + ' !'
                     }
                 }
             }
             if(!testFlag){
-                console.log('停止传播!');
                 event.preventDefault();
                 event.stopPropagation();
             }
@@ -197,7 +202,7 @@ const VFrom = React.createClass({
             }
         }
         else {
-            throw 'ERROR: 没有找到要验证的表单, 请设置要验证的表单的 ref 属性为 "vForm"'
+            throw 'ERROR: Did not found a Form to validate. Make sure you set the ref of the Form as "vForm".'
         }
     },
     render (){
