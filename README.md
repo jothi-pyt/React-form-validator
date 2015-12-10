@@ -31,6 +31,12 @@ example:
         input2: {
             required: true,
             maxLength: 6
+        },
+        input3: {
+            required: true,
+            awesome (value){
+                return value === 'awesome';
+            }
         }}}>
     <form ref="vForm">
         <label>Please input Numbers!</label>
@@ -38,6 +44,9 @@ example:
         <br/>
         <label>Please input a Chinese IdCard Number!</label>
         <input type="text" name="input2"/>
+        <br/>
+        <label>Please awesome!</label>
+        <input type="text" name="input3"/>
         <br/>
         <input type="submit"/>
     </form>
