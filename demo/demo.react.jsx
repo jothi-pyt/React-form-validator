@@ -6,7 +6,7 @@
  */
 import React from 'react';
 import ReactDom from 'react-dom';
-import ValidateableForm from './ValidateableForm.react.jsx';
+import ValidateableForm from './../source/ValidateableForm.react.jsx';
 
 const App = React.createClass({
     console (event){
@@ -34,7 +34,7 @@ const App = React.createClass({
                      }
                  }
                 }}>
-                <form ref="vForm">
+                <form ref="vForm" className="demo-validate-form">
                     <label>Please input Numbers!</label>
                     <input type="text" name="input1"/>
                     <br/>

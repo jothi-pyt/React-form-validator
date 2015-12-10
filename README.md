@@ -16,7 +16,7 @@ And you are all set to go!
 
 Default rules ar in the 
  
-[defaultRules](https://github.com/0rangeT1ger/React-form-validator/blob/master/source/defaultRules.js)
+[defaultRules](https://github.com/0rangeT1ger/React-form-validator/blob/release/source/defaultRules.js)
 
 example: 
 ```
@@ -53,7 +53,7 @@ example:
 </ValidateableForm>
 ```
 
-You may see the demo in the [demo.html](https://rawgit.com/0rangeT1ger/React-form-validator/master/source/index.html)
+You may see the demo in the [demo.html](https://rawgit.com/0rangeT1ger/React-form-validator/release/source/index.html)
 
 **Update 0.0.11**: 
 
