@@ -53,7 +53,7 @@ example:
 </ValidateableForm>
 ```
 
-You may see the demo in the [demo.html](https://rawgit.com/0rangeT1ger/React-form-validator/release/source/index.html)
+You may see the demo in the [demo.html](https://rawgit.com/0rangeT1ger/React-form-validator/release/demo/index.html)
 
 **Update 0.0.11**: 
 
