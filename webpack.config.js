@@ -3,7 +3,7 @@
  */
 var autoprefixer = require('autoprefixer');
 var webpack = require('webpack');
-
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var autoprefixerOptions = {
     browsers: [
         'ie >= 8',
