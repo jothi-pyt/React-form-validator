@@ -20,11 +20,12 @@ const App = React.createClass({
                                rules={{
                  input1: {
                      required: true,
-                     numbers: true
+                     numbers: true,
+                     minLength: 6
                  },
                  input2: {
                      required: true,
-                     idCard: true
+                     maxLength: 6
                  }
                 }}>
                 <form ref="vForm">

@@ -16,7 +16,7 @@ And you are all set to go!
 
 Default rules ar in the 
  
-`defaultRules.js`
+[defaultRules](https://github.com/0rangeT1ger/React-form-validator/blob/master/source/defaultRules.js)
 
 example: 
 ```
@@ -25,11 +25,12 @@ example:
     rules={{
         input1: {
             required: true,
-            numbers: true
+            numbers: true,
+            minLength: 6
         },
         input2: {
             required: true,
-            idCard: true
+            maxLength: 6
         }}}>
     <form ref="vForm">
         <label>Please input Numbers!</label>
@@ -44,3 +45,10 @@ example:
 ```
 
 You may see the demo in the [demo.html](https://rawgit.com/0rangeT1ger/React-form-validator/master/source/index.html)
+
+**Update 0.0.11**: 
+
+* You may now pass a function into your rules, which receive value and return true or false to validate
+ your form.
+* You may now use default rules : maxLength, minLength.
+* Some default messages updated.

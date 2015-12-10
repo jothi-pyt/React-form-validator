@@ -37,6 +37,7 @@ import assign from 'object-assign';
 require('./ValidateableForm.css');
 
 let __OriginFromSubmitHandler = function(){};
+const _defaultMessage = 'Input is not valid.';
 
 function insertMessageAfterInput (messages){
     let inputClassName = this.className.split(/\s+/);
@@ -115,7 +116,17 @@ const VFrom = React.createClass({
                         if(!rules[i].test(value)){
                             //If you break the rules
                             testFlag = false;
-                            popMessages.push(messages[i] || _defaultMessages[i]);
+                            popMessages.push(messages[i] || _defaultMessage);
+                        }
+                        else {
+                            //Do Nothing
+                        }
+                    }
+                    else if(Object.prototype.toString.call(rules[i]) === '[object Function]'){
+                        //If the rule itself is a Function.
+                        if(!rules[i](value)){
+                            testFlag = false;
+                            popMessages.push(messages[i] || _defaultMessage);
                         }
                         else {
                             //Do Nothing
@@ -137,12 +148,20 @@ const VFrom = React.createClass({
                             }
                         }
                         else { //If there is a Default Rule.
-                            if(!_defaultRules[i].test(value)){
-                                testFlag = false;
-                                popMessages.push(messages[i] || _defaultMessages[i]);
+                            if(Object.prototype.toString.call(_defaultRules[i]) === '[object RegExp]'){
+                                if(!_defaultRules[i].test(value)){
+                                    testFlag = false;
+                                    popMessages.push(messages[i] || _defaultMessages[i]);
+                                }
+                                else {
+                                    //Do Nothing
+                                }
                             }
-                            else {
-                                //Do Nothing
+                            else if(Object.prototype.toString.call(_defaultRules[i]) === '[object Function]') {
+                                if(!_defaultRules[i](rules[i], value)){
+                                    testFlag = false;
+                                    popMessages.push(messages[i] || (_defaultMessages[i] + rules[i]));
+                                }
                             }
                         }
                     }
