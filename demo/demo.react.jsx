@@ -35,10 +35,10 @@ const App = React.createClass({
                  }
                 }}>
                 <form ref="vForm" className="demo-validate-form">
-                    <label>Please input Numbers!</label>
+                    <label>Please input at least 6 numbers!</label>
                     <input type="text" name="input1"/>
                     <br/>
-                    <label>Please input a Chinese IdCard Number!</label>
+                    <label>Please input no more than 6 letters!</label>
                     <input type="text" name="input2"/>
                     <br/>
                     <label>Please awesome!</label>
