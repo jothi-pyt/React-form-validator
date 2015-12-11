@@ -236,3 +236,4 @@ const VFrom = React.createClass({
 });
 
 export default VFrom;
+module.exports = VFrom;
