@@ -1,6 +1,6 @@
 {
   "name": "react-form-validate",
-  "version": "0.0.12",
+  "version": "0.0.14",
   "description": "A React form validator. Has the same API as jQuery.validator",
   "main": "index.js",
   "scripts": {

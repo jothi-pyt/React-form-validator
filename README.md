@@ -61,3 +61,16 @@ You may see the demo in the [demo.html](https://rawgit.com/0rangeT1ger/React-for
  your form.
 * You may now use default rules : maxLength, minLength.
 * Some default messages updated.
+
+**Update 0.0.14**: 
+
+You may use either
+
+`const ValidateableForm =  require('react-form-validate');`
+
+or
+
+`import ValidateableForm from 'react-form-validate'; `
+
+now.
+
