@@ -6,7 +6,7 @@
  */
 import React from 'react';
 import ReactDom from 'react-dom';
-import ValidateableForm from './../source/ValidateableForm.react.jsx';
+import ValidateableForm from '../index';
 
 const App = React.createClass({
     console (event){
