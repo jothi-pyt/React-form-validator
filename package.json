@@ -1,11 +1,10 @@
 {
   "name": "react-form-validate",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "A React form validator. Has the same API as jQuery.validator",
   "main": "index.js",
   "scripts": {
-    "test": "webpack --config webpack.config.js ./demo/demo.react.jsx ./demo/app-[hash].js",
-    "build": "webpack --config webpack.config.js ./source/ValidateableForm.react.jsx ./index.js"
+    "test": "webpack --config webpack.config.js ./demo/demo.react.jsx ./demo/app-[hash].js"
   },
   "repository": {
     "type": "git",

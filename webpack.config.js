@@ -19,11 +19,6 @@ var autoprefixerOptions = {
 };
 
 module.exports = {
-    entry: './source/ValidateableForm.react.jsx',
-    output: {
-        path: './',
-        fileName: 'index.js'
-    },
     module: {
         loaders: [
             {
