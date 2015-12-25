@@ -74,3 +74,10 @@ or
 
 now.
 
+**Update 1.0.1**: 
+
+Fixed the most important bug: the export failure.
+
+First time publishing something on npm... Sorry about my carelessness.
+
+You can really and truly import and use this component now
