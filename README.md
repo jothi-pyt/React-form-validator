@@ -81,3 +81,7 @@ Fixed the most important bug: the export failure.
 First time publishing something on npm... Sorry about my carelessness.
 
 You can really and truly import and use this component now
+
+**Update 1.0.2**:
+ 
+ Fixed bugs under FireFox.
