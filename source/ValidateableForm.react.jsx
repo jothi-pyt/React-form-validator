@@ -49,11 +49,11 @@ function insertMessageAfterInput (messages){
     }
     this.className = inputClassName.join(' ');
     if(this.nextSibling && this.nextSibling.className === 'validate-message'){
-        this.nextSibling.innerText = messages[0];
+        this.nextSibling.innerHTML = messages[0];
     }
     else{
         let messageNode = document.createElement('span');
-        messageNode.innerText = messages[0];
+        messageNode.innerHTML = messages[0];
         messageNode.className = 'validate-message';
         if(this.nextSibling && this.parentNode){
             this.parentNode.insertBefore(messageNode, this.nextSibling);
@@ -73,7 +73,7 @@ function deleteMessageAfterInput (){
     }
     this.className = inputClassName.join(' ');
     if(this.nextSibling && this.nextSibling.className === 'validate-message'){
-        this.nextSibling.innerText = '';
+        this.nextSibling.innerHTML = '';
     }
     else {
         //Do Nothing
