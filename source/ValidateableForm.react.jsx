@@ -205,7 +205,7 @@ const VFrom = React.createClass({
                 if(rules.hasOwnProperty(i)){
                     let input = this.findChildInputByName(i);
                     if(input){
-                        testFlag = this.validate(this.props.rules[i], this.props.messages[i] || {})({target: input});
+                        testFlag = (this.validate(this.props.rules[i], this.props.messages[i] || {})({target: input})) && testFlag;
                     }
                     else {
                         throw 'ERROR: There is no input name as :' + i + ' !'
